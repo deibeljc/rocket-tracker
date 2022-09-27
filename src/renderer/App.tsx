@@ -122,11 +122,11 @@ const Hello = () => {
   };
 
   return (
-    <main className="mt-12 pb-8">
-      <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:max-w-7xl lg:px-8">
+    <main className="pb-8 mt-12">
+      <div className="max-w-3xl px-4 mx-auto sm:px-6 lg:max-w-7xl lg:px-8">
         <h1 className="sr-only">Page title</h1>
         {/* Main 3 column grid */}
-        <div className="grid grid-cols-1 items-start gap-4 lg:grid-cols-3 lg:gap-8 mb-12">
+        <div className="grid items-start grid-cols-1 gap-4 mb-12 lg:grid-cols-3 lg:gap-8">
           {/* Left column */}
           <div className="grid grid-cols-1 gap-4 lg:col-span-2">
             <section aria-labelledby="section-1-title">
@@ -173,7 +173,7 @@ const Hello = () => {
               <h2 className="sr-only" id="section-2-title">
                 Data
               </h2>
-              <div className="overflow-hidden rounded-lg bg-white shadow">
+              <div className="overflow-hidden bg-white rounded-lg shadow">
                 <div className="p-6">
                   <div className="flex flex-col">
                     <div>
@@ -227,13 +227,13 @@ const Hello = () => {
                     <div>
                       <label
                         htmlFor="location"
-                        className="block text-sm font-medium text-gray-700 mt-4"
+                        className="block mt-4 text-sm font-medium text-gray-700"
                       >
                         Serial Ports
                         <select
                           id="location"
                           name="location"
-                          className="mt-1 block w-full rounded-md border-gray-300 py-2 pl-3 pr-10 text-base focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
+                          className="block w-full py-2 pl-3 pr-10 mt-1 text-base border-gray-300 rounded-md focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
                           defaultValue=""
                           onChange={(e) => {
                             setSelectedPort(e.target.value);
@@ -252,7 +252,7 @@ const Hello = () => {
                   <div className="flex flex-col mt-4">
                     <label
                       htmlFor="location"
-                      className="block text-sm font-medium text-gray-700 mt-4"
+                      className="block mt-4 text-sm font-medium text-gray-700"
                     >
                       Current Data
                       <div>
@@ -292,7 +292,7 @@ const Hello = () => {
             initial={{
               height: '208px',
             }}
-            className="w-full fixed bottom-0 left-0 text-white bg-slate-800 overflow-hidden"
+            className="fixed bottom-0 left-0 w-full overflow-hidden text-white bg-slate-800"
           >
             {/* Header with collapse control */}
             <div
@@ -333,11 +333,11 @@ const Hello = () => {
               </h2>
               <div className="overflow-hidden rounded-lg shadow">
                 <div className="p-6">
-                  <ScrollToBottom className="h-40 overflow-scroll">
+                  <ScrollToBottom className="h-40 overflow-y-scroll">
                     {console.map((line) => {
                       return (
                         <div className="flex items-center">
-                          <span className="text-sm text-slate-400 mr-2">
+                          <span className="mr-2 text-sm text-slate-400">
                             {'>'}
                           </span>
                           {line}
