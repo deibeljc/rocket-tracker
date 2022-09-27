@@ -1,7 +1,7 @@
 import { MemoryRouter as Router, Routes, Route } from 'react-router-dom';
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useState } from 'react';
 import ScrollToBottom from 'react-scroll-to-bottom';
-import { GeoJson, Map, Marker } from 'pigeon-maps';
+import { GeoJson, Map as PMap, Marker } from 'pigeon-maps';
 import 'tailwindcss/tailwind.css';
 import './App.css';
 import { motion } from 'framer-motion';
@@ -134,7 +134,7 @@ const Hello = () => {
                 Mapping
               </h2>
               <div className="overflow-hidden rounded-lg bg-white shadow h-[600px]">
-                <Map
+                <PMap
                   height={600}
                   defaultCenter={[40.096907, -82.942324]}
                   center={latestCoord}
@@ -142,7 +142,7 @@ const Hello = () => {
                 >
                   <GeoJson
                     data={geoJsonSample}
-                    styleCallback={(feature: any, hover: any) => {
+                    styleCallback={(feature: any) => {
                       if (feature.geometry.type === 'LineString') {
                         return { strokeWidth: '2', stroke: 'black' };
                       }
@@ -162,7 +162,7 @@ const Hello = () => {
                       onClick={() => setHue(hue + 20)}
                     />
                   )}
-                </Map>
+                </PMap>
               </div>
             </section>
           </div>
@@ -239,6 +239,7 @@ const Hello = () => {
                             setSelectedPort(e.target.value);
                           }}
                         >
+                          {/* rome-ignore lint: I can't figure out how to disable this rule globally */}
                           <option disabled value="">
                             --Choose a port--
                           </option>

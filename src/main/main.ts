@@ -90,7 +90,7 @@ ipcMain.on('ipc-example', async (event, arg) => {
   event.reply('ipc-example', msgTemplate('pong'));
 });
 
-ipcMain.on('ipc-serialports', async (event, arg) => {
+ipcMain.on('ipc-serialports', async (event) => {
   console.log('Sending serial ports');
   SerialPort.list()
     .then((ports: any) => {
@@ -99,7 +99,7 @@ ipcMain.on('ipc-serialports', async (event, arg) => {
     .catch(() => {});
 });
 
-ipcMain.on('ipc-serialport-disconnect', async (event, arg) => {
+ipcMain.on('ipc-serialport-disconnect', async (event) => {
   await closePort();
   event.reply('ipc-serialport-disconnect', true);
 });
